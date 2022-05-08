@@ -192,6 +192,7 @@ body.menu-expanded .menu{
   width: 100vw;
   height: 100vh;
   padding-top: var(--nav-height);
+  transition: .5s;
 }
 
 body.menu-expanded nav{
