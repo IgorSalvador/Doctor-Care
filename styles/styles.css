@@ -1,4 +1,4 @@
-/* ===================== Geral ===================== */
+/* ===================== General ===================== */
 *{
   margin: 0;
   padding: 0;
@@ -12,7 +12,12 @@
   --paragraph: hsl(210, 9%, 31%);
   --brand-beige: hsl(39, 100%, 97%);
   --brand-light: hsl(148, 23%, 89%);
+  --bg-light: hsl(180, 14%, 97%);
   --nav-height: 7.2rem;
+}
+
+html{
+  scroll-behavior: smooth; /*Torna o rolamento suave */
 }
 
 html, body{
@@ -24,6 +29,7 @@ body{
   font-size: 1.6rem;
   text-align: center;
   overflow: overlay;
+  background: var(--bg-light);
 }
 
 .wrapper{
@@ -36,105 +42,45 @@ ul{
   list-style: none;
 }
 
-/* ===================== HEADER ===================== */
-
-header::before{
-  content: "";
-  width: 100%;
-  height: calc(108rem + var(--nav-height));
-  background: var(--brand-light);
-  display: block;
-  box-sizing: border-box;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
+img{
+  max-width: 100%;
 }
 
-header{
-  margin-top: calc(4.1rem + var(--nav-height));
+section{
+  padding: 10rem 0;
 }
 
-header h1{
+section header h4{
+  font-size: 1.4rem;
+  color: var(--primary-color);
+}
+
+section header h2{
+  font-size: 3rem;
+  line-height: 3.9rem;
+  color: var(--headline);
+}
+
+section header h1{
   font-size: 3.4rem;
   color: var(--headline);
   line-height: 130%;
-  margin-bottom: 2.4rem;
 }
 
-header h4{
-  font-size: 1.4rem;
-  color: var(--primary-color);
-  margin-bottom: 1.6rem;
-}
-
-header p{
-  font-size: 1.8rem;
-  line-height: 150%;
+section .content p{
   color: var(--paragraph);
-  margin-bottom: 3.2rem;
-}
-
-header button{
-  background: var(--primary-color);
-  border: none;
-  border-radius: 4rem;
-  margin: 0 auto;
-  margin-bottom: 6rem;
-  height: 5.2rem;
-  width: 26.3rem;
-  color: #FFFFFF;
-  text-transform: uppercase;
-  font-size: 1.4rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.6rem;
-  cursor: pointer;
-}
-
-header img{
-  width: 26.4rem;
-  display: block;
-  margin: 0 auto;
-  object-position: 0 2rem;
-}
-
-.stats{
-  width: 32.7rem;
-  padding: 4rem 0;
-  margin-inline: auto;
-  background: var(--brand-beige);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 6rem;
-  border: 1px solid var(--brand-light);
-  border-radius: .6rem;
-}
-
-.stat h3{
-  font-size: 4.8rem;
-  color: var(--headline);
-  line-height: 130%;
-  margin-bottom: .4rem;
-}
-
-.stat p{
-  margin: 0;
-  color: var(--primary-color);
-  
+  font-size: 1.6rem;
+  line-height: 150%;
 }
 
 /* ===================== NAVIGATION ===================== */
 nav {
   display: flex;
+  width: 100vw;
   height: var(--nav-height);
   position: fixed;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  z-index: 100;
 }
 
 nav .wrapper {
@@ -145,13 +91,10 @@ nav .wrapper {
 
 nav.scroll {
   background: var(--primary-color);
-  width: 100vw;
-  position: fixed;
-  top: 0;
   transition: .2s;
 }
 
-nav.scroll svg:nth-child(1) path {
+nav.scroll .logo path {
   fill: white;
 }
 
@@ -171,7 +114,7 @@ body.menu-expanded{
 }
 
 body.menu-expanded > :not(nav){/* Oculta todos os elementos menos o nav */
-  display: none;
+  visibility: hidden;
 }
 
  .menu, .close-menu, body.menu-expanded .open-menu{
@@ -184,6 +127,10 @@ body.menu-expanded .menu, body.menu-expanded .close-menu{
   visibility: visible;
 }
 
+.menu{
+  transform: translateY(-100%);
+}
+
 body.menu-expanded .menu{
   position: fixed;
   top: 0;
@@ -192,11 +139,8 @@ body.menu-expanded .menu{
   width: 100vw;
   height: 100vh;
   padding-top: var(--nav-height);
-  transition: .5s;
-}
-
-body.menu-expanded nav{
-  position: relative;
+  transition: transform .4s;
+  transform: translateY(0);
 }
 
 .menu ul:nth-child(1){ /*Aplica apenas para a primeira UL filha do .menu*/
@@ -248,3 +192,138 @@ body.menu-expanded .logo path {
 body.menu-expanded button path {
   stroke: white;
 }
+
+/* ===================== HEADER ===================== */
+
+#home::before{
+  content: "";
+  width: 100%;
+  height: calc(108rem + var(--nav-height));
+  background: var(--brand-light);
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+#home{
+  padding-top: calc(4.1rem + var(--nav-height));
+}
+
+#home h1{
+  margin-bottom: 2.4rem;
+}
+
+#home h4{
+  margin-bottom: 1.6rem;
+}
+
+#home p{
+  font-size: 1.8rem;
+  line-height: 150%;
+  color: var(--paragraph);
+  margin-bottom: 3.2rem;
+}
+
+#home button{
+  background: var(--primary-color);
+  border: none;
+  border-radius: 4rem;
+  margin: 0 auto;
+  margin-bottom: 6rem;
+  height: 5.2rem;
+  width: 26.3rem;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+  cursor: pointer;
+}
+
+#home img{
+  width: 26.4rem;
+  display: block;
+  margin: 0 auto;
+  object-position: 0 2rem;
+}
+
+.stats{
+  width: 32.7rem;
+  padding: 4rem 0;
+  margin-inline: auto;
+  background: var(--brand-beige);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6rem;
+  border: 1px solid var(--brand-light);
+  border-radius: .6rem;
+}
+
+.stat h3{
+  font-size: 4.8rem;
+  color: var(--headline);
+  line-height: 130%;
+  margin-bottom: .4rem;
+}
+
+.stat p{
+  margin: 0;
+  color: var(--primary-color);
+  
+}
+
+/* ===================== SERVICES ===================== */
+#services header h4{
+  font-size: 1.4rem;
+  line-height: 150%;
+  letter-spacing: 0.08rem;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  margin-bottom: 1.6rem;
+}
+
+#services header h2{
+  margin-bottom: 6rem;
+}
+
+#services .cards{
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+#services .card{
+  padding: 2.4rem;
+  text-align: left;
+  background: #FFF;
+  border: 1px solid var(--brand-light);
+  border-radius: .6rem;
+}
+
+#services .card h3{
+  margin: 1.6rem 0;
+}
+
+/* ===================== ABOUT ===================== */
+#about{
+  text-align: left;
+  background: var(--brand-beige);
+}
+
+#about header h2{
+  margin-bottom: 2.4rem;
+}
+
+#about .content p{
+  margin-top: 2.4rem;
+  margin-bottom: 6rem;
+}
+
+
