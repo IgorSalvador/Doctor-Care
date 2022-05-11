@@ -1,3 +1,5 @@
+window.addEventListener('scroll', onScroll)
+
 function onScroll(){
   showNavOnScroll()
   showBackToTopButtonOnScroll()
@@ -21,7 +23,7 @@ function showBackToTopButtonOnScroll(){
   let backToTop = document.getElementById('backToTopButton')
 
   //Quando o eixo Y da tela for maior que zero, é adicionada a classe
-  if(scrollY > 500){
+  if(scrollY > 350){
     backToTop.classList.add('show')
   }
   else{
