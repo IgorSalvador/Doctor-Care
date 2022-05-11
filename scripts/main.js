@@ -1,4 +1,9 @@
 function onScroll(){
+  showNavOnScroll()
+  showBackToTopButtonOnScroll()
+}
+
+function showNavOnScroll(){
   //Variaveis utilizadas
   let nav = document.getElementById('navigation')
 
@@ -8,6 +13,19 @@ function onScroll(){
   }
   else{
     nav.classList.remove('scroll')
+  }
+}
+
+function showBackToTopButtonOnScroll(){
+  //Variaveis utilizadas
+  let backToTop = document.getElementById('backToTopButton')
+
+  //Quando o eixo Y da tela for maior que zero, é adicionada a classe
+  if(scrollY > 500){
+    backToTop.classList.add('show')
+  }
+  else{
+    backToTop.classList.remove('show')
   }
 }
 
