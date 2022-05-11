@@ -7,7 +7,7 @@
 
 :root{
   font-size: 62.5%; /* Altera o tamanho padrão para 10px ( 1rem = 10px )*/
-  --hue: 290;
+  --hue: 170;
   --primary-color: hsl(var(--hue), 100%, 26%);
   --headline: hsl(210, 11%, 15%);
   --paragraph: hsl(210, 9%, 31%);
